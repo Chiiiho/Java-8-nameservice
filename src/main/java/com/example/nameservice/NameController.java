@@ -26,7 +26,7 @@ public class NameController {
 
         List<Name> names = nameMapper.findByNameStartingWith(startsWith);
         if (names.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+            return ResponseEntity.ok(names);
         }
 
         return ResponseEntity.ok(names);
