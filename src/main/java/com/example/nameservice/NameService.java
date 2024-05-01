@@ -18,12 +18,8 @@ public class NameService {
     }
 
     public Name findName(int id) {
-        Optional<Name> name = nameMapper.findById(id);
-        if (name.isPresent()) {
-            return name.get();
-        } else {
-            throw new NameNotFoundException("name not found");
-        }
+        return nameMapper.findById(id)
+                .orElseThrow(() -> new NameNotFoundException("Name not found"));
     }
 
 }
